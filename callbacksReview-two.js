@@ -38,7 +38,9 @@ var songs =
 //Write a 'getter' function that returns the songs array.
 
   //code here
-
+var getSongs =  function () {
+    return songs;
+}
 
 //Now write a setter that takes in two paramaters.
 //The first parameter is a song object and the second parameter is a callback (which will be a placeholder for your getter function)
@@ -46,3 +48,12 @@ var songs =
 //Once you do that, call your callback (getter) function which should get the songs and return them.
   
   //code here
+
+var songMine = {"wrapperType":"track", "kind":"song", "artistId":351794, "collectionId":557119, "trackId":557089, "artistName":"Nelly", "collectionName":"Country Grammar", "trackName":"Luven Me", "collectionCensoredName":"Country Grammar", "trackCensoredName":"Luven Me", "artistViewUrl":"https://itunes.apple.com/us/artist/nelly/id351794?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/luven-me/id557119?i=557089&uo=4", "trackViewUrl":"https://itunes.apple.com/us/album/luven-me/id557119?i=557089&uo=4", "previewUrl":"http://a1425.phobos.apple.com/us/r1000/100/Music/2f/4d/6b/mzm.ltmrxqab.aac.p.m4a", "artworkUrl30":"http://a3.mzstatic.com/us/r30/Features/5f/90/c8/dj.psehvfan.30x30-50.jpg", "artworkUrl60":"http://a5.mzstatic.com/us/r30/Features/5f/90/c8/dj.psehvfan.60x60-50.jpg", "artworkUrl100":"http://a4.mzstatic.com/us/r30/Features/5f/90/c8/dj.psehvfan.100x100-75.jpg", "collectionPrice":9.99, "trackPrice":1.29, "releaseDate":"2000-06-27T07:00:00Z", "collectionExplicitness":"explicit", "trackExplicitness":"explicit", "discCount":1, "discNumber":1, "trackCount":17, "trackNumber":16, "trackTimeMillis":247133, "country":"USA", "currency":"USD", "contentAdvisoryRating":"Explicit", "radioStationUrl":"https://itunes.apple.com/station/idra.557089"};
+
+var setSongs = function (obj, callback) {
+    songs.push(obj);
+    return callback();
+}
+
+setSongs(songMine, getSongs);
