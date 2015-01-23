@@ -1,5 +1,9 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
-
+var first = function (arr, callback(item)) {
+    item = arr[0];
+    return callback(item);
+}
+    
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -11,7 +15,10 @@ first(names, function(firstName){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+var last = function (arr, callback) {
+    var lastNam = arr[arr.length - 1];
+    return callback(lastNam);
+};
 
 
 
@@ -26,7 +33,10 @@ last(names, function(lastName){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
-
+var contains = function (str, arr, callback) {
+    return callback (arr.indexOf(str) !== -1);
+}
+        
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains('Colt', names, function(yes){
@@ -41,7 +51,13 @@ contains('Colt', names, function(yes){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+var map = function (arr, callback) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        newArr.push(callback(arr[i]));
+    }
+    return newArr;
+}
 
 
 
@@ -55,7 +71,15 @@ map(numbers, function(num){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+var uniq = function (arr, callback) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (newArr.indexOf(arr[i]) === -1) {
+            newArr.push(arr[i]);
+        }
+    }
+    return callback(newArr);
+}
 
 
 
@@ -69,12 +93,17 @@ uniq(names, function(uniqArr){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
+var each = function (names, callback) {
+    for (var i = 0; i < names.length; i++) {
+        callback(names[i], i);
+    }
+}
 
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
-  console.log('The item in the ' + indice + 'position is ' + item)
+  console.log('The item in the ' + indice + ' position is ' + item)
 });
 
 
@@ -82,7 +111,13 @@ each(names, function(item, indice){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var getUserById = function (str, arr, callback) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].id === str) {
+            callback(arr[i]);
+        }
+    }
+}
 
 
 var users = [
@@ -113,7 +148,13 @@ getUserById('16t', users, function(user){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+var find = function (arr, callback) {
+    for ( var i = 0; i < arr.length; i++) {
+        if (callback(arr[i])) {
+            return arr[i];
+        }
+    }
+}
 
 
 
